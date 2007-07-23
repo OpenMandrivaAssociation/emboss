@@ -1,9 +1,10 @@
 %define name	emboss
 %define NAME	EMBOSS
-%define version 4.0.0
+%define version 5.0.0
 %define release %mkrel 1
-%define major	4
+%define major	5
 %define libname	%mklibname %{name} %{major}
+%define develname %mklibname -d %{name}
 
 Name:		%{name}
 Version:	%{version}
@@ -16,7 +17,7 @@ Source0:	ftp://emboss.open-bio.org/pub/EMBOSS/%{NAME}-%{version}.tar.bz2
 Source1:	%{name}.default.bz2
 Requires:	%{libname} = %{version}
 BuildRequires:	libx11-devel
-BuildRequires:	automake1.8
+BuildRequires:	automake
 BuildRequires:  pcre-devel
 BuildRoot:      %{_tmppath}/%{name}-%{version}
 Obsoletes:	%{NAME}
@@ -40,24 +41,26 @@ Trends in Genetics June 2000, vol 16, No 6. pp.276-277
 Summary:        Main library for %{name}
 Group:          System/Libraries
 Provides:       lib%{name} = %{version}-%{release}
+Obsoletes:	lib%{name} < %{version}
 
 %description -n %{libname}
 This package contains the library needed to run %{name}.
 
-%package -n %{libname}-devel
+%package -n %{develname}
 Summary:        Development header files for %{name}
 Group:          Development/C
 Requires:       %{libname} = %{version}
 Provides:       lib%{name}-devel = %{version}-%{release}
+Obsoletes:	lib%{name}-devel < %{version}
 
-%description -n %{libname}-devel
+%description -n %{develname}
 Libraries, include files and other resources you can use to develop
 %{name} applications.
 
 %prep
 %setup -q -n %{NAME}-%{version}
-aclocal-1.8 -I m4
-automake-1.8
+aclocal -I m4
+automake
 bzcat %{SOURCE1} > emboss.default
 
 %build
@@ -115,7 +118,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_libdir}/*.so.*
 
-%files -n %libname-devel
+%files -n %develname
 %defattr(-,root,root)
 %{_libdir}/*.so
 %{_libdir}/*.a
