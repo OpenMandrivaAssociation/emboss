@@ -19,7 +19,6 @@ Requires:	%{libname} = %{version}
 BuildRequires:	libx11-devel
 BuildRequires:	automake
 BuildRequires:  pcre-devel
-BuildRoot:      %{_tmppath}/%{name}-%{version}
 Obsoletes:	%{NAME}
 Provides:	%{NAME}
 
