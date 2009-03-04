@@ -1,10 +1,12 @@
 %define name	emboss
 %define NAME	EMBOSS
 %define version 5.0.0
-%define release %mkrel 3
+%define release %mkrel 4
 %define major	5
 %define libname	%mklibname %{name} %{major}
 %define develname %mklibname -d %{name}
+%define _disable_ld_no_undefined 1
+%define _disable_ld_as_needed 1
 
 Name:		%{name}
 Version:	%{version}
@@ -15,6 +17,7 @@ License:	GPL/LGPL
 URL:		http://www.emboss.org
 Source0:	ftp://emboss.open-bio.org/pub/EMBOSS/%{NAME}-%{version}.tar.bz2
 Source1:	%{name}.default.bz2
+Patch:      EMBOSS-5.0.0-fix-format-errors.patch
 Requires:	%{libname} = %{version}
 BuildRequires:	libx11-devel
 BuildRequires:	automake
@@ -59,6 +62,7 @@ Libraries, include files and other resources you can use to develop
 
 %prep
 %setup -q -n %{NAME}-%{version}
+%patch -p 1
 aclocal -I m4
 automake
 bzcat %{SOURCE1} > emboss.default
