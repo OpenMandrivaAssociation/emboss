@@ -1,7 +1,7 @@
 %define name	emboss
 %define NAME	EMBOSS
-%define version 5.0.0
-%define release %mkrel 4
+%define version 6.1.0
+%define release %mkrel 1
 %define major	5
 %define libname	%mklibname %{name} %{major}
 %define develname %mklibname -d %{name}
@@ -15,9 +15,8 @@ Summary:	The European Molecular Biology Open Software Suite
 Group:		Sciences/Biology
 License:	GPL/LGPL
 URL:		http://www.emboss.org
-Source0:	ftp://emboss.open-bio.org/pub/EMBOSS/%{NAME}-%{version}.tar.bz2
+Source0:	ftp://emboss.open-bio.org/pub/EMBOSS/%{NAME}-%{version}.tar.gz
 Source1:	%{name}.default.bz2
-Patch:      EMBOSS-5.0.0-fix-format-errors.patch
 Requires:	%{libname} = %{version}
 BuildRequires:	libx11-devel
 BuildRequires:	automake
@@ -62,7 +61,6 @@ Libraries, include files and other resources you can use to develop
 
 %prep
 %setup -q -n %{NAME}-%{version}
-%patch -p 1
 aclocal -I m4
 automake
 bzcat %{SOURCE1} > emboss.default
