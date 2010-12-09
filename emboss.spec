@@ -1,7 +1,7 @@
 %define name	emboss
 %define NAME	EMBOSS
 %define version 6.1.0
-%define release %mkrel 1
+%define release %mkrel 2
 %define major	5
 %define libname	%mklibname %{name} %{major}
 %define develname %mklibname -d %{name}
