@@ -1,8 +1,8 @@
 %define name	emboss
 %define NAME	EMBOSS
-%define version 6.1.0
-%define release %mkrel 2
-%define major	5
+%define version 6.4.0
+%define release %mkrel 1
+%define major	6
 %define libname	%mklibname %{name} %{major}
 %define develname %mklibname -d %{name}
 %define _disable_ld_no_undefined 1
@@ -94,7 +94,7 @@ EOF
 #remove jemboss
 rm -rf %{buildroot}%{_datadir}/EMBOSS/jemboss
 #fix nss conflict
-mv %{buildroot}%{_bindir}/digest %{buildroot}%{_bindir}/digest-%{name}
+#mv %{buildroot}%{_bindir}/digest %{buildroot}%{_bindir}/digest-%{name}
 #fix avlmap-utils
 mv %{buildroot}%{_bindir}/wordcount %{buildroot}%{_bindir}/wordcount-%{name}
 #fix libtool files perms
