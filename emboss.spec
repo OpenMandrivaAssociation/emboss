@@ -7,7 +7,7 @@
 
 Name:		emboss
 Version:	6.4.0
-Release:	2
+Release:	3
 Summary:	The European Molecular Biology Open Software Suite
 Group:		Sciences/Biology
 License:	GPL/LGPL
