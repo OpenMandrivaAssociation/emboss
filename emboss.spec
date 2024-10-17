@@ -11,7 +11,7 @@ Release:	3
 Summary:	The European Molecular Biology Open Software Suite
 Group:		Sciences/Biology
 License:	GPL/LGPL
-URL:		http://www.emboss.org
+URL:		https://www.emboss.org
 Source0:	ftp://emboss.open-bio.org/pub/EMBOSS/%{NAME}-%{version}.tar.gz
 Source1:	%{name}.default.bz2
 Requires:	%{libname} = %{version}
