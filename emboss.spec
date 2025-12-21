@@ -15,6 +15,9 @@ URL:		https://www.emboss.org
 Source0:	ftp://emboss.open-bio.org/pub/EMBOSS/%{NAME}-%{version}.tar.gz
 Source1:	%{name}.default.bz2
 Requires:	%{libname} = %{version}
+BuildRequires:	autoconf
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	automake
 BuildRequires:  pcre-devel
